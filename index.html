@@ -1,65 +1,1213 @@
-<header>
-  <div class="container">
-    <div class="brand">Beyond<span>Pain</span></div>
-    <a href="#get-book" class="btn">Get the Book</a>
-    <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener">Get the Book</a>
-  </div>
-</header>
+html = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-@@ -582,7 +582,7 @@
-      </div>
-    </div>
+  <title>Beyond Pain | Break the Cycle of Chronic Pain</title>
+  <meta
+    name="description"
+    content="Beyond Pain is a clear, practical guide to understanding chronic pain, reducing fear, rebuilding confidence, and returning to meaningful movement."
+  />
 
-    <a href="#get-book" class="btn" style="margin-top:36px;">Get Beyond Pain</a>
-    <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener" style="margin-top:36px;">Get Beyond Pain</a>
-    <span class="btn-sub">Paperback &amp; Kindle · Written at a 6th-grade reading level, on purpose</span>
+  <meta property="og:title" content="Beyond Pain | Break the Cycle of Chronic Pain" />
+  <meta
+    property="og:description"
+    content="Understand pain. Reduce fear. Rebuild confidence. Start moving forward again."
+  />
+  <meta property="og:type" content="website" />
 
-    <div class="authors-line">
-@@ -754,7 +754,7 @@
-        </li>
-      </ul>
-      <div style="margin-top: 32px;">
-        <a href="#" class="btn">Order Your Copy Now</a>
-        <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener">Order Your Copy Now</a>
-        <span class="btn-sub">Available in Paperback &amp; eBook formats</span>
-      </div>
-    </div>
-@@ -921,7 +921,7 @@
-    <div class="eyebrow" style="color:#E39A78; justify-content:center;">Take the first step</div>
-    <h2>Ready to Break the Cycle?</h2>
-    <p class="lede" style="margin-bottom:32px;">Stop letting chronic pain dictate what you can and cannot do. Get your copy of Beyond Pain today.</p>
-    <a href="#get-book" class="btn">Get Beyond Pain Now</a>
-    <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener">Get Beyond Pain Now</a>
-    <span class="btn-sub">Paperback &amp; eBook available immediately</span>
-  </div>
-</section>
-@@ -937,28 +937,28 @@
-</footer>
-
-<div class="sticky-cta" id="stickyCta">
-  <a href="#get-book" class="btn">Get Beyond Pain</a>
-  <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener">Get Beyond Pain</a>
-</div>
-
-<script>
-  // Simple FAQ Accordion
-  document.querySelectorAll('.faq-q').forEach(button => {
-    button.addEventListener('click', () => {
-      const item = button.parentElement;
-      item.classList.toggle('open');
-    });
-  });
-
-  // Sticky CTA on Scroll for Mobile
-  const stickyCta = document.getElementById('stickyCta');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      stickyCta.classList.add('show');
-    } else {
-      stickyCta.classList.remove('show');
+  <style>
+    :root {
+      --bg: #f7f2ec;
+      --surface: #fffdf9;
+      --surface-2: #efe7dd;
+      --ink: #17332c;
+      --muted: #617069;
+      --accent: #d98263;
+      --accent-dark: #b85e42;
+      --line: rgba(23, 51, 44, 0.12);
+      --shadow: 0 20px 60px rgba(36, 46, 41, 0.12);
+      --radius: 26px;
+      --max: 1160px;
     }
-  });
-</script>
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-dark);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 999px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 8vw, 6.8rem);
+      max-width: 850px;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+    }
+
+    h3 {
+      font-size: 1.28rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-weight: 800;
+      border: 1px solid var(--ink);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 26px rgba(23, 51, 44, 0.15);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #0f2822;
+      box-shadow: 0 14px 32px rgba(23, 51, 44, 0.2);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .btn.secondary:hover {
+      background: rgba(23, 51, 44, 0.06);
+    }
+
+    .btn.amazon::after {
+      content: "↗";
+      font-size: 1rem;
+    }
+
+    .btn-sub {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, backdrop-filter 0.2s ease;
+    }
+
+    header.scrolled {
+      background: rgba(247, 242, 236, 0.9);
+      border-color: var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand span {
+      color: var(--accent-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:not(.btn) {
+      color: var(--muted);
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--ink);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 76px 0 96px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      right: -180px;
+      top: -80px;
+      background: rgba(217, 130, 99, 0.18);
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero-copy > p {
+      max-width: 720px;
+      font-size: 1.15rem;
+      margin-top: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .trust-row {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .trust-row span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-row span::before {
+      content: "✓";
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(23, 51, 44, 0.1);
+      color: var(--ink);
+      font-size: 0.72rem;
+    }
+
+    .book-stage {
+      position: relative;
+      min-height: 530px;
+      display: grid;
+      place-items: center;
+    }
+
+    .book-stage::after {
+      content: "";
+      position: absolute;
+      width: 78%;
+      height: 50px;
+      bottom: 40px;
+      border-radius: 50%;
+      background: rgba(26, 38, 34, 0.2);
+      filter: blur(24px);
+      z-index: -1;
+    }
+
+    .book {
+      width: min(340px, 82%);
+      aspect-ratio: 0.68;
+      background:
+        radial-gradient(circle at 80% 12%, rgba(255,255,255,.22), transparent 24%),
+        linear-gradient(155deg, #1c483d 0%, #17332c 56%, #10241f 100%);
+      color: white;
+      border-radius: 8px 18px 18px 8px;
+      padding: 42px 34px;
+      box-shadow:
+        22px 26px 60px rgba(20, 35, 30, 0.28),
+        inset -12px 0 18px rgba(0, 0, 0, 0.15);
+      transform: rotate(5deg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .book::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: rgba(255,255,255,.14);
+    }
+
+    .book-kicker {
+      font-size: 0.73rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #edb49d;
+      font-weight: 800;
+      margin-bottom: 34px;
+    }
+
+    .book-title {
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      line-height: 0.92;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .book-line {
+      width: 66px;
+      height: 4px;
+      background: #e39a78;
+      margin: 28px 0;
+    }
+
+    .book-sub {
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 240px;
+      font-size: 0.96rem;
+    }
+
+    .book-author {
+      position: absolute;
+      bottom: 34px;
+      left: 34px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,.78);
+    }
+
+    /* Sections */
+    section {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 54px;
+    }
+
+    .section-head p {
+      margin-top: 18px;
+      font-size: 1.06rem;
+    }
+
+    .pain-cycle {
+      background: var(--ink);
+      color: white;
+    }
+
+    .pain-cycle p,
+    .pain-cycle .eyebrow {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .cycle-card {
+      min-height: 220px;
+      border-radius: 24px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cycle-num {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #e39a78;
+      color: var(--ink);
+      font-weight: 900;
+      margin-bottom: 38px;
+    }
+
+    .cycle-card h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      min-height: 240px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--surface-2);
+      margin-bottom: 32px;
+      font-size: 1.15rem;
+    }
+
+    .feature-card p {
+      margin-top: 12px;
+    }
+
+    /* Quote */
+    .quote-wrap {
+      background: #eadfd3;
+      border-radius: 34px;
+      padding: clamp(34px, 7vw, 78px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-wrap::after {
+      content: "“";
+      position: absolute;
+      top: -72px;
+      right: 30px;
+      font-family: Georgia, serif;
+      font-size: 18rem;
+      color: rgba(23, 51, 44, 0.06);
+      line-height: 1;
+    }
+
+    blockquote {
+      font-size: clamp(1.9rem, 4vw, 3.6rem);
+      font-weight: 800;
+      max-width: 920px;
+      line-height: 1.13;
+      letter-spacing: -0.035em;
+    }
+
+    .quote-note {
+      margin-top: 24px;
+      font-weight: 700;
+    }
+
+    /* Audience */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .audience-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+    }
+
+    .audience-card ul {
+      margin-top: 20px;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .audience-card li {
+      color: var(--muted);
+      display: flex;
+      gap: 12px;
+    }
+
+    .audience-card li::before {
+      content: "→";
+      color: var(--accent-dark);
+      font-weight: 900;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .author-card {
+      min-height: 450px;
+      border-radius: 30px;
+      background:
+        linear-gradient(rgba(23,51,44,.04), rgba(23,51,44,.04)),
+        repeating-linear-gradient(
+          135deg,
+          #e8ded3 0,
+          #e8ded3 16px,
+          #efe8df 16px,
+          #efe8df 32px
+        );
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .author-placeholder {
+      text-align: center;
+      padding: 30px;
+      max-width: 290px;
+    }
+
+    .author-placeholder strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .about-copy p {
+      margin-top: 18px;
+      font-size: 1.04rem;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      max-width: 880px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      appearance: none;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      padding: 22px 24px;
+      color: var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .faq-q span:last-child {
+      font-size: 1.5rem;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-a p {
+      padding: 0 24px 22px;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 220px;
+    }
+
+    .faq-item.open .faq-q span:last-child {
+      transform: rotate(45deg);
+    }
+
+    /* CTA */
+    .final-cta {
+      padding-top: 40px;
+    }
+
+    .cta-box {
+      background: var(--ink);
+      color: white;
+      padding: clamp(44px, 8vw, 90px);
+      border-radius: 34px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before,
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(227, 154, 120, 0.18);
+    }
+
+    .cta-box::before {
+      left: -120px;
+      top: -120px;
+    }
+
+    .cta-box::after {
+      right: -120px;
+      bottom: -120px;
+    }
+
+    .cta-box h2 {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 650px;
+      margin: 20px auto 30px;
+    }
+
+    .cta-box .btn {
+      background: #e39a78;
+      color: #17332c;
+      border-color: #e39a78;
+    }
+
+    /* Footer */
+    footer {
+      padding: 34px 0 110px;
+    }
+
+    .footer-row {
+      border-top: 1px solid var(--line);
+      padding-top: 28px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: 0.88rem;
+    }
+
+    .footer-row p {
+      max-width: 680px;
+    }
+
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 120;
+      display: none;
+      transform: translateY(120px);
+      transition: transform 0.25s ease;
+    }
+
+    .sticky-cta.show {
+      transform: translateY(0);
+    }
+
+    .sticky-cta .btn {
+      width: 100%;
+      min-height: 58px;
+      box-shadow: 0 15px 44px rgba(23, 51, 44, 0.26);
+    }
+
+    @media (max-width: 960px) {
+      .nav-links a:not(.btn) {
+        display: none;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .book-stage {
+        min-height: 480px;
+      }
+
+      .cycle-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      header .btn {
+        min-height: 44px;
+        padding: 0 16px;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding-bottom: 70px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 16vw, 4.7rem);
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .book-stage {
+        min-height: 430px;
+      }
+
+      .cycle-grid,
+      .feature-grid,
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-row {
+        flex-direction: column;
+      }
+
+      .sticky-cta {
+        display: block;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Beyond Pain home">
+        Beyond<span>Pain</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#inside">Inside the Book</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a
+          href="https://a.co/d/0cC4n31c"
+          class="btn amazon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get the Book
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A different way to understand chronic pain</div>
+
+          <h1>Pain is real. But fear doesn’t have to run your life.</h1>
+
+          <p>
+            <strong>Beyond Pain</strong> explains chronic pain in clear, human language
+            and helps readers understand why pain can persist, why fear can make life
+            smaller, and how gradual movement and confidence can help change the story.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              href="https://a.co/d/0cC4n31c"
+              class="btn amazon"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Beyond Pain on Amazon
+            </a>
+
+            <a href="#inside" class="btn secondary">
+              See What’s Inside
+            </a>
+          </div>
+
+          <span class="btn-sub">
+            Paperback &amp; Kindle · Written to be practical, clear, and easy to understand
+          </span>
+
+          <div class="trust-row">
+            <span>Simple pain science</span>
+            <span>Fear-avoidance explained</span>
+            <span>Practical next steps</span>
+          </div>
+        </div>
+
+        <div class="book-stage" aria-label="Stylized Beyond Pain book cover">
+          <div class="book">
+            <div class="book-kicker">Understand • Rebuild • Move</div>
+            <div class="book-title">Beyond<br />Pain</div>
+            <div class="book-line"></div>
+            <div class="book-sub">
+              A practical guide to understanding chronic pain, reducing fear,
+              and rebuilding confidence in movement.
+            </div>
+            <div class="book-author">Leno Benny, PT</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pain-cycle">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Why pain can feel stuck</div>
+          <h2>The cycle is bigger than the body alone.</h2>
+          <p>
+            Chronic pain can affect movement, sleep, confidence, emotions, and daily
+            decisions. Understanding the cycle can make it feel less mysterious.
+          </p>
+        </div>
+
+        <div class="cycle-grid">
+          <article class="cycle-card">
+            <div class="cycle-num">1</div>
+            <h3>Pain</h3>
+            <p>A painful experience creates a powerful warning signal.</p>
+          </article>
+
+          <article class="cycle-card">
+            <div class="cycle-num">2</div>
+            <h3>Fear</h3>
+            <p>Movement starts to feel dangerous, even when damage is not increasing.</p>
+          </article>
+
+          <article class="cycle-card">
+            <div class="cycle-num">3</div>
+            <h3>Avoidance</h3>
+            <p>Activity shrinks, confidence drops, and the body becomes less prepared.</p>
+          </article>
+
+          <article class="cycle-card">
+            <div class="cycle-num">4</div>
+            <h3>More sensitivity</h3>
+            <p>The nervous system may become more protective, keeping the cycle going.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="inside">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Inside the book</div>
+          <h2>Not “just think positive.” A clearer way to make sense of pain.</h2>
+          <p>
+            The goal is not to dismiss pain. It is to understand it well enough that
+            fear, uncertainty, and avoidance stop controlling every decision.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Understand pain science</h3>
+            <p>
+              Learn why pain and tissue damage are related, but not always the same thing.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🔁</div>
+            <h3>Recognize the pain–fear cycle</h3>
+            <p>
+              See how worry, avoidance, deconditioning, and sensitivity can reinforce one another.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🚶</div>
+            <h3>Return to movement</h3>
+            <p>
+              Learn why gradual exposure and meaningful activity can help rebuild confidence.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🌙</div>
+            <h3>Look beyond one body part</h3>
+            <p>
+              Understand how sleep, stress, attention, beliefs, and lifestyle can influence pain.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🧭</div>
+            <h3>Ask better questions</h3>
+            <p>
+              Replace “What is wrong with me?” with questions that support recovery and action.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🌱</div>
+            <h3>Build a healthier relationship with pain</h3>
+            <p>
+              Shift from constant protection toward informed, gradual, confident participation in life.
+            </p>
+          </article>
+        </div>
+
+        <div style="margin-top: 38px;">
+          <a
+            href="https://a.co/d/0cC4n31c"
+            class="btn amazon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Beyond Pain
+          </a>
+          <span class="btn-sub">Available on Amazon in Paperback &amp; Kindle formats</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="quote-wrap">
+          <blockquote>
+            “The goal is not to prove that your pain is imaginary. The goal is to
+            understand pain well enough that it no longer owns every decision you make.”
+          </blockquote>
+          <p class="quote-note">— From the central idea behind Beyond Pain</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Who this is for</div>
+          <h2>For people who are tired of feeling trapped by pain.</h2>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card">
+            <h3>This book may help you if…</h3>
+            <ul>
+              <li>Pain has lasted longer than you expected.</li>
+              <li>You are afraid certain movements will make you worse.</li>
+              <li>Scans or tests have left you confused rather than reassured.</li>
+              <li>You have started avoiding exercise, work, travel, or daily activities.</li>
+              <li>You want a simple explanation of modern pain science.</li>
+            </ul>
+          </article>
+
+          <article class="audience-card">
+            <h3>What this book does not promise</h3>
+            <ul>
+              <li>No miracle cure or overnight transformation.</li>
+              <li>No claim that pain is “all in your head.”</li>
+              <li>No one-size-fits-all exercise prescription.</li>
+              <li>No replacement for individualized medical evaluation when needed.</li>
+              <li>No fear-based marketing or exaggerated health claims.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="author-card">
+          <div class="author-placeholder">
+            <strong>Add your author photo here</strong>
+            <p>
+              Replace this box with an image later by adding an
+              <code>&lt;img&gt;</code> element.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <div class="eyebrow">About the author</div>
+          <h2>Written by a physical therapist who wants pain science to make sense.</h2>
+          <p>
+            Leno Benny, PT, created <strong>Beyond Pain</strong> to make modern pain
+            education easier to understand for everyday readers.
+          </p>
+          <p>
+            The book brings together rehabilitation principles, pain science, movement,
+            behavior, and the human experience of living with persistent pain—without
+            burying the reader in medical jargon.
+          </p>
+
+          <div style="margin-top: 30px;">
+            <a
+              href="https://a.co/d/0cC4n31c"
+              class="btn amazon"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Order Your Copy
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Frequently asked questions</div>
+          <h2>A few things readers may want to know.</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>Is Beyond Pain only for people with back pain?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                No. The concepts are intended to help readers understand persistent pain
+                more broadly, not only one diagnosis or body region.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>Does the book say chronic pain is psychological?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                No. Pain is real. The book explains how biological, psychological,
+                behavioral, and social factors can all influence the pain experience.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>Is this a replacement for medical care or physical therapy?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                No. The book is educational and should not replace individualized diagnosis,
+                treatment, or emergency medical care.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span>Where can I buy the book?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                You can purchase Beyond Pain through Amazon using any “Get the Book”
+                button on this page.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="get-book">
+      <div class="container">
+        <div class="cta-box">
+          <div class="eyebrow" style="color:#e39a78; justify-content:center;">
+            Take the first step
+          </div>
+
+          <h2>Understand your pain. Rebuild trust in your body. Start moving forward.</h2>
+
+          <p>
+            If persistent pain has made your world smaller, Beyond Pain can help you
+            understand what may be happening and approach movement with a different perspective.
+          </p>
+
+          <a
+            href="https://a.co/d/0cC4n31c"
+            class="btn amazon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Beyond Pain on Amazon
+          </a>
+
+          <span class="btn-sub" style="color:rgba(255,255,255,.62);">
+            Paperback &amp; Kindle
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>
+        <div class="brand">Beyond<span>Pain</span></div>
+        <p style="margin-top: 10px;">
+          Educational information only. This website and book do not provide individualized
+          medical diagnosis or treatment and are not a substitute for care from a qualified
+          healthcare professional.
+        </p>
+      </div>
+
+      <p>© <span id="year"></span> Beyond Pain. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <a
+      href="https://a.co/d/0cC4n31c"
+      class="btn amazon"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Get Beyond Pain
+    </a>
+  </div>
+
+  <script>
+    const header = document.getElementById("siteHeader");
+    const stickyCta = document.getElementById("stickyCta");
+
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 20);
+      stickyCta.classList.toggle("show", window.scrollY > 600);
+    });
+
+    document.querySelectorAll(".faq-q").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        const isOpen = item.classList.toggle("open");
+        button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+'''
+
+path = "/mnt/data/index.html"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(html)
+
+print(f"Created: {path}")
