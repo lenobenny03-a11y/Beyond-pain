@@ -1,16 +1,4 @@
-from pathlib import Path
-
-source_path = Path("/mnt/data/Pasted text(11).txt")
-output_path = Path("/mnt/data/index-beyond-pain-seo-updated.html")
-
-html = source_path.read_text(encoding="utf-8")
-
-old_head = """<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beyond Pain | Chronic Pain Book by Leno Benny, PT</title>
-<meta name="description" content="Beyond Pain by Leno Benny, PT, MS &amp; Reepa Avichal Ughreja, PT, PhD. A physical therapist's guide to understanding chronic pain and getting your life back.">
-"""
-
-new_head = """<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Primary SEO -->
 <title>Beyond Pain — Break the Cycle. Move Again.</title>
@@ -41,13 +29,3 @@ new_head = """<meta name="viewport" content="width=device-width, initial-scale=1
   "url": "https://lenobenny03-a11y.github.io/"
 }
 </script>
-"""
-
-if old_head not in html:
-    raise ValueError("The expected original SEO block was not found, so no file was changed.")
-
-updated_html = html.replace(old_head, new_head, 1)
-output_path.write_text(updated_html, encoding="utf-8")
-
-print(f"Created: {output_path}")
-print(f"Size: {output_path.stat().st_size:,} bytes")
