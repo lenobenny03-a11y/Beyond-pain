@@ -1,56 +1,65 @@
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<header>
+  <div class="container">
+    <div class="brand">Beyond<span>Pain</span></div>
+    <a href="#get-book" class="btn">Get the Book</a>
+    <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener">Get the Book</a>
+  </div>
+</header>
 
-<!-- Primary SEO -->
-<title>Beyond Pain — Break the Cycle. Move Again.</title>
-<meta name="description" content="Beyond Pain by Leno Benny, PT, MS and Reepa Avichal Ughreja, PT, PhD. A practical physical therapist's guide to understanding chronic pain, rebuilding confidence, and moving again.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://lenobenny03-a11y.github.io/Beyond-pain/">
+@@ -582,7 +582,7 @@
+      </div>
+    </div>
 
-<!-- Google and social site-name signals -->
-<meta property="og:site_name" content="Beyond Pain">
-<meta property="og:title" content="Beyond Pain — Break the Cycle. Move Again.">
-<meta property="og:description" content="A practical guide to understanding chronic pain, rebuilding confidence, and moving again.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://lenobenny03-a11y.github.io/Beyond-pain/">
-<meta property="og:image" content="https://lenobenny03-a11y.github.io/Beyond-pain/cover.jpg">
+    <a href="#get-book" class="btn" style="margin-top:36px;">Get Beyond Pain</a>
+    <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener" style="margin-top:36px;">Get Beyond Pain</a>
+    <span class="btn-sub">Paperback &amp; Kindle · Written at a 6th-grade reading level, on purpose</span>
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Beyond Pain — Break the Cycle. Move Again.">
-<meta name="twitter:description" content="A practical guide to understanding chronic pain, rebuilding confidence, and moving again.">
-<meta name="twitter:image" content="https://lenobenny03-a11y.github.io/Beyond-pain/cover.jpg">
+    <div class="authors-line">
+@@ -754,7 +754,7 @@
+        </li>
+      </ul>
+      <div style="margin-top: 32px;">
+        <a href="#" class="btn">Order Your Copy Now</a>
+        <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener">Order Your Copy Now</a>
+        <span class="btn-sub">Available in Paperback &amp; eBook formats</span>
+      </div>
+    </div>
+@@ -921,7 +921,7 @@
+    <div class="eyebrow" style="color:#E39A78; justify-content:center;">Take the first step</div>
+    <h2>Ready to Break the Cycle?</h2>
+    <p class="lede" style="margin-bottom:32px;">Stop letting chronic pain dictate what you can and cannot do. Get your copy of Beyond Pain today.</p>
+    <a href="#get-book" class="btn">Get Beyond Pain Now</a>
+    <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener">Get Beyond Pain Now</a>
+    <span class="btn-sub">Paperback &amp; eBook available immediately</span>
+  </div>
+</section>
+@@ -937,28 +937,28 @@
+</footer>
 
-<!-- Schema.org Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Beyond Pain",
-  "alternateName": "Beyond Pain by Leno Benny",
-  "url": "https://lenobenny03-a11y.github.io/Beyond-pain/"
-}
+<div class="sticky-cta" id="stickyCta">
+  <a href="#get-book" class="btn">Get Beyond Pain</a>
+  <a href="https://a.co/d/0cC4n31c" class="btn" target="_blank" rel="noopener">Get Beyond Pain</a>
+</div>
+
+<script>
+  // Simple FAQ Accordion
+  document.querySelectorAll('.faq-q').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+
+  // Sticky CTA on Scroll for Mobile
+  const stickyCta = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      stickyCta.classList.add('show');
+    } else {
+      stickyCta.classList.remove('show');
+    }
+  });
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-/* ============ DESIGN TOKENS ============
-    Color:
-      --stone      #EDE8DC  warm paper background, not clinical white
-      --ink        #20241F  near-black ink, slight green-black warmth
-      --navy       #1C2A38  deep authority navy (headers, footer)
-      --ember      #BE5C39  warm terracotta-ember accent (CTAs, emphasis)
-      --sage       #6C8968  healing/growth green (relief states, checks)
-      --gold       #AD833C  quiet gold, book/authority accent, used sparingly
-      --line       #D8D0BF  hairline dividers on stone
-    Type:
-      Display: Fraunces (warm literary serif, variable optical size) — headlines only
-      Body:    Inter — everything else
-    Signature element: the "Cycle → Spiral" diagram — a closed pain loop that
-    physically breaks open and unwinds into an ascending spiral. Reused as a
-    motif (loop marks) throughout the page.
- ============================================ */
-:root{
+</body>
+</html>
